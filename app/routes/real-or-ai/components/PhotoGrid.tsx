@@ -11,6 +11,19 @@ interface PhotoGridProps {
   disabled?: boolean;
 }
 
+const borderColors = [
+  {
+    border: "border-cyan-400",
+    shadow: "shadow-[0_0_30px_rgba(34,211,238,0.6)]",
+    hover: "hover:shadow-[0_0_40px_rgba(34,211,238,0.8)]",
+  },
+  {
+    border: "border-purple-400",
+    shadow: "shadow-[0_0_30px_rgba(192,132,252,0.6)]",
+    hover: "hover:shadow-[0_0_40px_rgba(192,132,252,0.8)]",
+  },
+];
+
 export function PhotoGrid({
   images,
   onSelectImage,
@@ -24,8 +37,8 @@ export function PhotoGrid({
   };
 
   const selectedColorMap = {
-    [RealOrAIAnswer.REAL]: "border-16 border-red-500 hover:scale-110 scale-110",
-    [RealOrAIAnswer.AI]: "border-16 border-green-500 hover:scale-110 scale-110",
+    [RealOrAIAnswer.REAL]: "hover:scale-110 scale-110 animate-red-glow",
+    [RealOrAIAnswer.AI]: "hover:scale-110 scale-110 animate-rainbow-border",
   };
   const image: DatasetType[] = useMemo(
     () => Object.values(images).filter((item) => typeof item !== "number"),
@@ -53,26 +66,30 @@ export function PhotoGrid({
 
   return (
     <div className="grid grid-cols-2 gap-x-16 my-16 max-h-[calc(100vh-200px)]">
-      {sortedImage.map((item: DatasetType) => (
-        <button
-          className=""
-          key={item.image}
-          onClick={() => handleSelectImage(item)}
-        >
-          <Image
-            src={item.image}
-            className={cn(
-              "transition-all duration-500 ease-bounce transform",
-              visibleImages.has(item.image)
-                ? "opacity-100 scale-100 translate-y-0 rotate-0"
-                : "opacity-0 scale-75 translate-y-8 rotate-12",
-              !disabled && "hover:cursor-pointer hover:scale-105",
-              selected?.image === item.image &&
-                selectedColorMap[selected?.answer as RealOrAIAnswer]
-            )}
-          />
-        </button>
-      ))}
+      {sortedImage.map((item: DatasetType, index: number) => {
+        const colorScheme = borderColors[index % borderColors.length];
+        return (
+          <button
+            className=""
+            key={item.image}
+            onClick={() => handleSelectImage(item)}
+          >
+            <Image
+              src={item.image}
+              className={cn(
+                "transition-all duration-500 ease-bounce transform border-4 rounded-lg",
+                visibleImages.has(item.image)
+                  ? "opacity-100 scale-100 translate-y-0 rotate-0"
+                  : "opacity-0 scale-75 translate-y-8 rotate-12",
+                !disabled && "hover:cursor-pointer hover:scale-105",
+                selected?.image === item.image
+                  ? selectedColorMap[selected?.answer as RealOrAIAnswer]
+                  : `${colorScheme.border} ${colorScheme.shadow} ${!disabled && colorScheme.hover}`
+              )}
+            />
+          </button>
+        );
+      })}
     </div>
   );
 }

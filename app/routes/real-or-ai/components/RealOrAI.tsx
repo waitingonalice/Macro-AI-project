@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { MdOutlineNavigateNext } from "react-icons/md";
-import { RxReset } from "react-icons/rx";
 import confetti from "canvas-confetti";
 import { Button } from "~/components";
 import { type DatasetType } from "~/data/realOrAI";
@@ -91,18 +89,18 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
 
   return (
     <div className="flex flex-col items-center my-10">
-      <h3 className="absolute top-0 right-0 m-4 text-4xl font-semibold">
+      <h3 className="absolute top-0 right-0 mx-20 my-12 text-4xl font-semibold font-conthrax-sb">
         Timer: {time}
       </h3>
-      <h3 className="absolute top-0 left-0 m-4 text-4xl font-semibold">
+      <h3 className="absolute top-0 left-0 mx-18 my-16 text-4xl font-semibold font-conthrax-sb">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
       </h3>
       <div className="space-y-4">
-        <h3 className="text-4xl font-bold text-center">
+        <h3 className="text-4xl font-bold text-center font-conthrax-sb">
           {isReset ? `Game Over!` : "Which one is AI?"}
         </h3>
         {isReset && (
-          <h3 className="text-3xl font-bold text-center">
+          <h3 className="text-3xl font-bold text-center font-conthrax-sb">
             Score: {score} / {MAX_QUESTIONS}
           </h3>
         )}
@@ -118,22 +116,11 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
       <div className="flex gap-8">
         {(!selected && time === 0 && !isReset) ||
           (selected && !isReset && (
-            <Button
-              colour={selected?.answer === RealOrAIAnswer.AI ? "green" : "red"}
-              onClick={handleClickNext}
-              icon={<MdOutlineNavigateNext />}
-            >
-              Next
-            </Button>
+            <Button onClick={handleClickNext}>Next</Button>
           ))}
 
         {isReset && (
-          <Button
-            className="mt-10"
-            onClick={handleResetGame}
-            colour="amber"
-            icon={<RxReset />}
-          >
+          <Button className="mt-10" onClick={handleResetGame}>
             Reset
           </Button>
         )}

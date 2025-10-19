@@ -5,7 +5,7 @@ interface ButtonProps {
   onClick: () => void;
   disabled?: boolean;
   size?: "sm" | "md" | "lg";
-  colour?: "amber" | "green" | "red";
+  colour?: "default" | "green" | "red";
   icon?: React.ReactNode;
   className?: string;
 }
@@ -15,36 +15,44 @@ export function Button({
   onClick,
   disabled,
   size = "md",
-  colour = "amber",
+  colour = "default",
   icon,
   className,
 }: ButtonProps) {
   const sizeMap = {
-    sm: "py-2 px-4 text-sm",
-    md: "py-4 px-8 text-lg",
-    lg: "py-6 px-12 text-2xl",
+    sm: "py-2 px-6 text-sm",
+    md: "py-3 px-8 text-lg",
+    lg: "py-5 px-12 text-2xl",
   };
 
   const colourMap = {
-    amber: "bg-amber-600 hover:bg-amber-700 active:bg-amber-700",
-    green: "bg-green-600 hover:bg-green-700 active:bg-green-700",
-    red: "bg-red-600 hover:bg-red-700 active:bg-red-700",
+    default: "bg-[#8000FF]",
+    green: "bg-green-600",
+    red: "bg-red-600",
   };
+
   return (
     <button
       className={cn(
-        "rounded-md border border-transparent text-center transition-all shadow-md hover:shadow-lg focus:shadow-none active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2 font-medium text-white",
+        "relative text-center transition-all duration-300 font-bold text-white uppercase tracking-wider disabled:pointer-events-none disabled:opacity-50",
+        "shadow-lg hover:shadow-xl focus:outline-none",
         sizeMap[size],
         colourMap[colour],
-        icon && "flex items-center gap-2",
+        icon && "flex items-center justify-center gap-2",
         className
       )}
+      style={{
+        clipPath:
+          "polygon(15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%, 0% 50%)",
+      }}
       type="button"
       onClick={onClick}
       disabled={disabled}
     >
-      {children}
-      {icon}
+      <span className="relative flex items-center justify-center font-conthrax-sb">
+        {children}
+        {icon}
+      </span>
     </button>
   );
 }

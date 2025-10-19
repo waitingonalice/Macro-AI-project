@@ -71,16 +71,17 @@ export function BestPracticesGame({ onReset }: BestPracticesGameProps) {
 
   return (
     <div className="flex flex-col items-center size-full gap-10 mt-10">
-      <h3 className="absolute top-0 right-0 m-4 text-4xl font-semibold">
+      <h3 className="absolute top-0 right-0 mx-20 my-12 text-4xl font-semibold font-conthrax-sb">
         Timer: {time}
       </h3>
-      <h3 className="absolute top-0 left-0 m-4 text-4xl font-semibold">
+      <h3 className="absolute top-0 left-0 mx-18 my-16 text-4xl font-semibold font-conthrax-sb">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
       </h3>
-      <h3 className="text-4xl font-bold">
-        Press the green button if all statements are best practices.
+      <h3 className="text-4xl font-bold font-conthrax-sb">
+        Press the <span className="text-green-600">green</span> button if all
+        statements are best practices.
       </h3>
-      <div className="grid grid-cols-3 gap-4 w-full h-3/4">
+      <div className="grid grid-cols-3 gap-2 w-full h-3/4 px-20">
         {questions[questionCount].statements.map((statement, index) => (
           // Generate random key to trigger rerender when statements are shuffled for animation
           <Grid
@@ -93,17 +94,11 @@ export function BestPracticesGame({ onReset }: BestPracticesGameProps) {
       </div>
       <div className="col-span-3 flex justify-center h-fit">
         {time > 0 ? (
-          <Button colour="amber" onClick={handleClickShowAnswer}>
-            Show Answer
-          </Button>
+          <Button onClick={handleClickShowAnswer}>Show Answer</Button>
         ) : isReset ? (
-          <Button onClick={handleResetGame} colour="amber" icon={<RxReset />}>
-            Reset
-          </Button>
+          <Button onClick={handleResetGame}>Reset</Button>
         ) : (
-          <Button colour="amber" onClick={handleNext}>
-            Next
-          </Button>
+          <Button onClick={handleNext}>Next</Button>
         )}
       </div>
     </div>
