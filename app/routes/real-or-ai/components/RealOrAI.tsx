@@ -89,14 +89,14 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
 
   return (
     <div className="flex flex-col items-center my-10">
-      <h3 className="absolute top-0 right-0 mx-20 my-12 text-4xl font-semibold font-conthrax-sb">
+      <h3 className="absolute top-[6.5%] right-[8%] text-4xl font-semibold font-conthrax-sb">
         Timer: {time}
       </h3>
-      <h3 className="absolute top-0 left-0 mx-18 my-16 text-4xl font-semibold font-conthrax-sb">
+      <h3 className="absolute top-[6.5%] left-[8%] text-4xl font-semibold font-conthrax-sb">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
       </h3>
       <div className="space-y-4">
-        <h3 className="text-4xl font-bold text-center font-conthrax-sb">
+        <h3 className="text-4xl font-bold text-center font-conthrax-sb mt-[8%]">
           {isReset ? `Game Over!` : "Which one is AI?"}
         </h3>
         {isReset && (
