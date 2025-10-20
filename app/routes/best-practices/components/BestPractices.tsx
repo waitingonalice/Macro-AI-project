@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Grid } from "./Grid";
 import { Button } from "~/components";
 import { useRandomizeStatements } from "../hooks/useRandomize";
-import { RxReset } from "react-icons/rx";
 import { useTimer } from "~/hooks/useTimer";
 import backgroundMusic from "/audio/mixkit-game-level-music-689.wav";
 import correctSound from "/audio/mixkit-game-level-completed-2059.wav";

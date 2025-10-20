@@ -67,13 +67,9 @@ export function PhotoGrid({
   return (
     <div className="grid grid-cols-2 gap-x-16 my-16 max-h-[calc(100vh-200px)]">
       {sortedImage.map((item: DatasetType, index: number) => {
-        const colorScheme = borderColors[index % borderColors.length];
+        const colorScheme = borderColors[index];
         return (
-          <button
-            className=""
-            key={item.image}
-            onClick={() => handleSelectImage(item)}
-          >
+          <button key={item.image} onClick={() => handleSelectImage(item)}>
             <Image
               src={item.image}
               className={cn(
