@@ -59,3 +59,7 @@ body {
     0 0 70px 20px rgba(255, 100, 100, 0.4),
     0 0 90px 25px rgba(255, 150, 150, 0.2) !important;
 }
+
+h3 {
+  color: #fff;
+}
