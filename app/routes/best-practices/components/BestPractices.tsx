@@ -24,7 +24,7 @@ export function BestPracticesGame({ onReset }: BestPracticesGameProps) {
   const [animationKeys, setAnimationKeys] = useState<string[]>(
     generateAnimationKeys()
   );
-  const { time, handleReset, handleSkipTime } = useTimer(7);
+  const { time, handleReset, handleSkipTime } = useTimer(20);
   const isReset = questionCount === MAX_QUESTIONS - 1;
 
   const handleClickShowAnswer = () => {
@@ -76,11 +76,16 @@ export function BestPracticesGame({ onReset }: BestPracticesGameProps) {
       <h3 className="absolute top-[6.5%] left-[8%] text-4xl font-semibold font-conthrax-sb">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
       </h3>
+
       <h3 className="text-4xl font-bold font-conthrax-sb mt-[2%]">
         Press the <span className="text-green-600">green</span> button if all
         statements are best practices.
       </h3>
-      <div className="grid grid-cols-3 gap-2 w-full h-[calc(100vh-28rem)] px-[8%]">
+      <h3 className="text-4xl font-bold font-conthrax-sb mt-[2%]">
+        Press the <span className="text-red-600">red</span> button if any of the
+        statements are bad practices.
+      </h3>
+      <div className="grid grid-cols-3 gap-2 w-full h-[calc(100vh-36rem)] px-[8%]">
         {questions[questionCount].statements.map((statement, index) => (
           // Generate random key to trigger rerender when statements are shuffled for animation
           <Grid

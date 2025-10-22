@@ -21,7 +21,7 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
   const [questionCount, setQuestionCount] = useState(0);
   const [score, setScore] = useState(0);
 
-  const { time, handleReset: handleResetTimer } = useTimer(10);
+  const { time, handleReset: handleResetTimer } = useTimer(7);
   const { randomImages, handleGenerateRandomImages } = useRandomImages();
 
   const isReset = questionCount === MAX_QUESTIONS;

@@ -1,9 +1,5 @@
-import aeroplane_ai from "/images/real-or-ai/ai_images/aeroplane.png";
-import aeroplane_real from "/images/real-or-ai/real_images/aeroplane.jpg";
-import angler_ai from "/images/real-or-ai/ai_images/angler.png";
-import angler_real from "/images/real-or-ai/real_images/angler.jpeg";
-import apples_ai from "/images/real-or-ai/ai_images/apples.png";
-import apples_real from "/images/real-or-ai/real_images/apples.jpeg";
+import airport_tower_ai from "/images/real-or-ai/ai_images/airport_tower.png";
+import airport_tower_real from "/images/real-or-ai/real_images/airport_tower.png";
 import apt_on_fire_ai from "/images/real-or-ai/ai_images/apt_on_fire.png";
 import apt_on_fire_real from "/images/real-or-ai/real_images/apt_on_fire.jpeg";
 import baby_in_suit_ai from "/images/real-or-ai/ai_images/baby_in_suit.png";
@@ -12,34 +8,28 @@ import cow_ai from "/images/real-or-ai/ai_images/cow.png";
 import cow_real from "/images/real-or-ai/real_images/cow.jpg";
 import divers_ai from "/images/real-or-ai/ai_images/divers.png";
 import divers_real from "/images/real-or-ai/real_images/divers.jpg";
-import dog_biting_phone_ai from "/images/real-or-ai/ai_images/dog_biting_phone.png";
-import dog_biting_phone_real from "/images/real-or-ai/real_images/dog_biting_phone.jpg";
 import ecp_beacon_tower_ai from "/images/real-or-ai/ai_images/ecp_beacon_tower.png";
 import ecp_beacon_tower_real from "/images/real-or-ai/real_images/ecp_beacon_tower.jpg";
 import family_ai from "/images/real-or-ai/ai_images/family.png";
 import family_real from "/images/real-or-ai/real_images/family.jpg";
-import fat_cat_ai from "/images/real-or-ai/ai_images/fat_cat.png";
-import fat_cat_real from "/images/real-or-ai/real_images/fat_cat.jpg";
-import fox_ai from "/images/real-or-ai/ai_images/fox.png";
-import fox_real from "/images/real-or-ai/real_images/fox.jpeg";
 import kallang_river_ai from "/images/real-or-ai/ai_images/kallang_river.png";
 import kallang_river_real from "/images/real-or-ai/real_images/kallang_river.png";
 import merlion_ai from "/images/real-or-ai/ai_images/merlion.png";
 import merlion_real from "/images/real-or-ai/real_images/merlion.jpg";
-import nbc_ai from "/images/real-or-ai/ai_images/nbc.png";
-import nbc_real from "/images/real-or-ai/real_images/nbc.jpg";
+import merlion1_ai from "/images/real-or-ai/ai_images/merlion1.jpeg";
+import merlion1_real from "/images/real-or-ai/real_images/merlion1.jpg";
 import nuhs_ai from "/images/real-or-ai/ai_images/nuhs.png";
 import nuhs_real from "/images/real-or-ai/real_images/nuhs.jpeg";
 import puppy_ai from "/images/real-or-ai/ai_images/puppy.png";
 import puppy_real from "/images/real-or-ai/real_images/puppy.jpg";
-import reporter_ai from "/images/real-or-ai/ai_images/reporter.png";
-import reporter_real from "/images/real-or-ai/real_images/reporter.png";
-import reporter2_ai from "/images/real-or-ai/ai_images/reporter2.png";
-import reporter2_real from "/images/real-or-ai/real_images/reporter2.jpeg";
 import supermarket_ai from "/images/real-or-ai/ai_images/supermarket.png";
 import supermarket_real from "/images/real-or-ai/real_images/supermarket.jpg";
-import turtle_ai from "/images/real-or-ai/ai_images/turtle.png";
-import turtle_real from "/images/real-or-ai/real_images/turtle.webp";
+import scenary_ai from "/images/real-or-ai/ai_images/scenary.jpg";
+import scenary_real from "/images/real-or-ai/real_images/scenary.jpg";
+import office_ai from "/images/real-or-ai/ai_images/office.jpg";
+import office_real from "/images/real-or-ai/real_images/office.jpg";
+import jewel_fountain_ai from "/images/real-or-ai/ai_images/jewel_fountain.png";
+import jewel_fountain_real from "/images/real-or-ai/real_images/jewel_fountain.png";
 import void_deck_ai from "/images/real-or-ai/ai_images/void_deck.png";
 import void_deck_real from "/images/real-or-ai/real_images/void_deck.jpeg";
 import ambulance_ai from "/images/real-or-ai/ai_images/ambulance.png";
@@ -75,33 +65,33 @@ export const dataset: RealOrAIDatasetType[] = [
   {
     key: 0,
     real: {
-      image: aeroplane_real,
+      image: jewel_fountain_real,
       answer: RealOrAIAnswer.REAL,
     },
     ai: {
-      image: aeroplane_ai,
+      image: jewel_fountain_ai,
       answer: RealOrAIAnswer.AI,
     },
   },
   {
     key: 1,
     ai: {
-      image: angler_ai,
+      image: merlion1_ai,
       answer: RealOrAIAnswer.AI,
     },
     real: {
-      image: angler_real,
+      image: merlion1_real,
       answer: RealOrAIAnswer.REAL,
     },
   },
   {
     key: 2,
     real: {
-      image: apples_real,
+      image: office_real,
       answer: RealOrAIAnswer.REAL,
     },
     ai: {
-      image: apples_ai,
+      image: office_ai,
       answer: RealOrAIAnswer.AI,
     },
   },
@@ -152,11 +142,11 @@ export const dataset: RealOrAIDatasetType[] = [
   {
     key: 7,
     ai: {
-      image: dog_biting_phone_ai,
+      image: airport_tower_ai,
       answer: RealOrAIAnswer.AI,
     },
     real: {
-      image: dog_biting_phone_real,
+      image: airport_tower_real,
       answer: RealOrAIAnswer.REAL,
     },
   },
@@ -185,25 +175,25 @@ export const dataset: RealOrAIDatasetType[] = [
   {
     key: 10,
     ai: {
-      image: fat_cat_ai,
+      image: scenary_ai,
       answer: RealOrAIAnswer.AI,
     },
     real: {
-      image: fat_cat_real,
+      image: scenary_real,
       answer: RealOrAIAnswer.REAL,
     },
   },
-  {
-    key: 11,
-    real: {
-      image: fox_real,
-      answer: RealOrAIAnswer.REAL,
-    },
-    ai: {
-      image: fox_ai,
-      answer: RealOrAIAnswer.AI,
-    },
-  },
+  // {
+  //   key: 11,
+  //   real: {
+  //     image: fox_real,
+  //     answer: RealOrAIAnswer.REAL,
+  //   },
+  //   ai: {
+  //     image: fox_ai,
+  //     answer: RealOrAIAnswer.AI,
+  //   },
+  // },
   {
     key: 12,
     ai: {
@@ -226,17 +216,17 @@ export const dataset: RealOrAIDatasetType[] = [
       answer: RealOrAIAnswer.AI,
     },
   },
-  {
-    key: 14,
-    ai: {
-      image: nbc_ai,
-      answer: RealOrAIAnswer.AI,
-    },
-    real: {
-      image: nbc_real,
-      answer: RealOrAIAnswer.REAL,
-    },
-  },
+  // {
+  //   key: 14,
+  //   ai: {
+  //     image: nbc_ai,
+  //     answer: RealOrAIAnswer.AI,
+  //   },
+  //   real: {
+  //     image: nbc_real,
+  //     answer: RealOrAIAnswer.REAL,
+  //   },
+  // },
   {
     key: 15,
     real: {
@@ -259,28 +249,28 @@ export const dataset: RealOrAIDatasetType[] = [
       answer: RealOrAIAnswer.REAL,
     },
   },
-  {
-    key: 17,
-    ai: {
-      image: reporter_ai,
-      answer: RealOrAIAnswer.AI,
-    },
-    real: {
-      image: reporter_real,
-      answer: RealOrAIAnswer.REAL,
-    },
-  },
-  {
-    key: 18,
-    real: {
-      image: reporter2_real,
-      answer: RealOrAIAnswer.REAL,
-    },
-    ai: {
-      image: reporter2_ai,
-      answer: RealOrAIAnswer.AI,
-    },
-  },
+  // {
+  //   key: 17,
+  //   ai: {
+  //     image: reporter_ai,
+  //     answer: RealOrAIAnswer.AI,
+  //   },
+  //   real: {
+  //     image: reporter_real,
+  //     answer: RealOrAIAnswer.REAL,
+  //   },
+  // },
+  // {
+  //   key: 18,
+  //   real: {
+  //     image: reporter2_real,
+  //     answer: RealOrAIAnswer.REAL,
+  //   },
+  //   ai: {
+  //     image: reporter2_ai,
+  //     answer: RealOrAIAnswer.AI,
+  //   },
+  // },
   {
     key: 19,
     real: {
@@ -292,17 +282,17 @@ export const dataset: RealOrAIDatasetType[] = [
       answer: RealOrAIAnswer.AI,
     },
   },
-  {
-    key: 20,
-    ai: {
-      image: turtle_ai,
-      answer: RealOrAIAnswer.AI,
-    },
-    real: {
-      image: turtle_real,
-      answer: RealOrAIAnswer.REAL,
-    },
-  },
+  // {
+  //   key: 20,
+  //   ai: {
+  //     image: turtle_ai,
+  //     answer: RealOrAIAnswer.AI,
+  //   },
+  //   real: {
+  //     image: turtle_real,
+  //     answer: RealOrAIAnswer.REAL,
+  //   },
+  // },
   {
     key: 21,
     ai: {
