@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import confetti from "canvas-confetti";
-import { Button } from "~/components";
+// import confetti from "canvas-confetti";
+import { Button, Text } from "~/components";
 import { type DatasetType } from "~/data/realOrAI";
 import { PhotoGrid } from "../components/PhotoGrid";
 import { useTimer } from "../../../hooks/useTimer";
@@ -9,6 +9,7 @@ import { useRandomImages } from "../hooks/useRandomImages";
 import correctSound from "/audio/mixkit-game-level-completed-2059.wav";
 import incorrectSound from "/audio/mixkit-player-losing-or-failing-2042.wav";
 import backgroundMusic from "/audio/mixkit-game-level-music-689.wav";
+import { cn } from "~/utils/cn";
 
 interface RealOrAIGameProps {
   onReset: () => void;
@@ -30,11 +31,11 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
     if (selected || time === 0) return;
     if (image.answer === RealOrAIAnswer.AI) {
       setScore((prev) => prev + 1);
-      confetti({
-        particleCount: 1000,
-        spread: 5000,
-        origin: { y: 0.6 },
-      });
+      // confetti({
+      //   particleCount: 1000,
+      //   spread: 5000,
+      //   origin: { y: 0.6 },
+      // });
       new Audio(correctSound).play();
     } else {
       new Audio(incorrectSound).play();
@@ -89,20 +90,29 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
 
   return (
     <div className="flex flex-col items-center my-10">
-      <h3 className="absolute top-[6.5%] right-[8%] text-4xl font-semibold font-conthrax-sb">
-        Timer: {time}
-      </h3>
-      <h3 className="absolute top-[6.5%] left-[8%] text-4xl font-semibold font-conthrax-sb">
+      <Text className="absolute top-[6.5%] right-[8%]">Timer: {time}</Text>
+      <Text className="absolute top-[6.5%] left-[8%]">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
-      </h3>
-      <div className="space-y-4">
-        <h3 className="text-4xl font-bold text-center font-conthrax-sb mt-[8%]">
+      </Text>
+
+      <div
+        className={cn(
+          "space-y-8 flex flex-col items-center justify-center text-center",
+          isReset && " h-[calc(100vh-10rem)]"
+        )}
+      >
+        <Text className="mt-[8%] font-bold">
           {isReset ? `Game Over!` : "Which one is AI?"}
-        </h3>
+        </Text>
         {isReset && (
-          <h3 className="text-3xl font-bold text-center font-conthrax-sb">
+          <Text className="font-bold">
             Score: {score} / {MAX_QUESTIONS}
-          </h3>
+          </Text>
+        )}
+        {isReset && (
+          <Button className="mt-10" onClick={handleResetGame}>
+            Reset
+          </Button>
         )}
       </div>
       {randomImages && !isReset && (
@@ -118,12 +128,6 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
           (selected && !isReset && (
             <Button onClick={handleClickNext}>Next</Button>
           ))}
-
-        {isReset && (
-          <Button className="mt-10" onClick={handleResetGame}>
-            Reset
-          </Button>
-        )}
       </div>
     </div>
   );

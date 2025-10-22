@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Grid } from "./Grid";
-import { Button } from "~/components";
+import { Button, Text } from "~/components";
 import { useRandomizeStatements } from "../hooks/useRandomize";
 import { useTimer } from "~/hooks/useTimer";
 import backgroundMusic from "/audio/mixkit-game-level-music-689.wav";
@@ -70,21 +70,19 @@ export function BestPracticesGame({ onReset }: BestPracticesGameProps) {
 
   return (
     <div className="flex flex-col items-center size-full gap-10 mt-10">
-      <h3 className="absolute top-[6.5%] right-[8%] text-4xl font-semibold font-conthrax-sb">
-        Timer: {time}
-      </h3>
-      <h3 className="absolute top-[6.5%] left-[8%] text-4xl font-semibold font-conthrax-sb">
+      <Text className="absolute top-[6.5%] right-[8%]">Timer: {time}</Text>
+      <Text className="absolute top-[6.5%] left-[8%]">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
-      </h3>
+      </Text>
 
-      <h3 className="text-4xl font-bold font-conthrax-sb mt-[2%]">
+      <Text className="mt-[2%]">
         Press the <span className="text-green-600">green</span> button if all
         statements are best practices.
-      </h3>
-      <h3 className="text-4xl font-bold font-conthrax-sb mt-[2%]">
+      </Text>
+      <Text className="mt-[2%]">
         Press the <span className="text-red-600">red</span> button if any of the
         statements are bad practices.
-      </h3>
+      </Text>
       <div className="grid grid-cols-3 gap-2 w-full h-[calc(100vh-36rem)] px-[8%]">
         {questions[questionCount].statements.map((statement, index) => (
           // Generate random key to trigger rerender when statements are shuffled for animation
