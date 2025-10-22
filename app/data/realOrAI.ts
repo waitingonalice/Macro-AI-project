@@ -42,6 +42,20 @@ import turtle_ai from "/images/real-or-ai/ai_images/turtle.png";
 import turtle_real from "/images/real-or-ai/real_images/turtle.webp";
 import void_deck_ai from "/images/real-or-ai/ai_images/void_deck.png";
 import void_deck_real from "/images/real-or-ai/real_images/void_deck.jpeg";
+import ambulance_ai from "/images/real-or-ai/ai_images/ambulance.png";
+import ambulance_real from "/images/real-or-ai/real_images/ambulance.png";
+import doctor_ai from "/images/real-or-ai/ai_images/doctor.jpeg";
+import doctor_real from "/images/real-or-ai/real_images/doctor.jpg";
+import gbtb_ai from "/images/real-or-ai/ai_images/gbtb.png";
+import gbtb_real from "/images/real-or-ai/real_images/gbtb.png";
+import little_india_ai from "/images/real-or-ai/ai_images/little_india.png";
+import little_india_real from "/images/real-or-ai/real_images/little_india.png";
+import mbs_ai from "/images/real-or-ai/ai_images/mbs.png";
+import mbs_real from "/images/real-or-ai/real_images/mbs.png";
+import uphill_running from "/images/real-or-ai/real_images/uphill_running.jpg";
+import uphill_running_ai from "/images/real-or-ai/ai_images/uphill_running.jpg";
+import uss_ai from "/images/real-or-ai/ai_images/USS.png";
+import uss_real from "/images/real-or-ai/real_images/USS.png";
 
 import { RealOrAIAnswer } from "~/constants/enum";
 
@@ -297,6 +311,83 @@ export const dataset: RealOrAIDatasetType[] = [
     },
     real: {
       image: void_deck_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 22,
+    ai: {
+      image: ambulance_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: ambulance_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 23,
+    ai: {
+      image: doctor_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: doctor_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 24,
+    ai: {
+      image: gbtb_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: gbtb_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 25,
+    ai: {
+      image: little_india_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: little_india_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 26,
+    ai: {
+      image: mbs_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: mbs_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 27,
+    ai: {
+      image: uphill_running_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: uphill_running,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 28,
+    ai: {
+      image: uss_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: uss_real,
       answer: RealOrAIAnswer.REAL,
     },
   },
