@@ -56,6 +56,8 @@ import flying_cow_ai from "/images/real-or-ai/ai_images/flying_cow.jpg";
 import flying_cow_real from "/images/real-or-ai/real_images/flying_cow.jpeg";
 import entrance_ai from "/images/real-or-ai/ai_images/entrance.png";
 import entrance_real from "/images/real-or-ai/real_images/entrance.png";
+import kids_playing_ai from "/images/real-or-ai/ai_images/kids_playing.jpg";
+import kids_playing_real from "/images/real-or-ai/real_images/kids_playing.jpg";
 
 import { RealOrAIAnswer } from "~/constants/enum";
 
@@ -388,6 +390,17 @@ export const dataset: RealOrAIDatasetType[] = [
     },
     real: {
       image: uss_real,
+      answer: RealOrAIAnswer.REAL,
+    },
+  },
+  {
+    key: 29,
+    ai: {
+      image: kids_playing_ai,
+      answer: RealOrAIAnswer.AI,
+    },
+    real: {
+      image: kids_playing_real,
       answer: RealOrAIAnswer.REAL,
     },
   },
