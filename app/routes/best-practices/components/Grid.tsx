@@ -27,7 +27,7 @@ export function Grid({ statement, delay = 0, timer }: GridProps) {
   };
 
   return (
-    <div className="relative w-full flex items-center justify-center">
+    <div className="relative size-full flex items-center justify-center">
       {/* Border layer */}
       <div
         className={cn(
@@ -60,7 +60,7 @@ export function Grid({ statement, delay = 0, timer }: GridProps) {
             : "0 0 0 rgba(0, 0, 0, 0)",
         }}
       >
-        <div className="text-white font-conthrax-sb leading-relaxed text-center text-xl px-4 z-10">
+        <div className="text-white font-conthrax-sb leading-relaxed text-center text-2xl px-4 z-10">
           {statement.statement}
         </div>
       </div>

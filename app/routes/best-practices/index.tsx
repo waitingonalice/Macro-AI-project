@@ -15,17 +15,9 @@ export default function BestPractices() {
     setIsStarted(true);
   };
 
-  const handleReset = () => {
-    setIsStarted(false);
-  };
-
   return (
     <Layout title="Best Practices">
-      {isStarted ? (
-        <BestPracticesGame onReset={handleReset} />
-      ) : (
-        <Start onStart={handleStart} />
-      )}
+      {isStarted ? <BestPracticesGame /> : <Start onStart={handleStart} />}
     </Layout>
   );
 }

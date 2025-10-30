@@ -6,8 +6,8 @@ import { PhotoGrid } from "../components/PhotoGrid";
 import { useTimer } from "../../../hooks/useTimer";
 import { RealOrAIAnswer } from "~/constants/enum";
 import { useRandomImages } from "../hooks/useRandomImages";
-import correctSound from "/audio/mixkit-game-level-completed-2059.wav";
-import incorrectSound from "/audio/mixkit-player-losing-or-failing-2042.wav";
+import correctSound from "/audio/correct-sound.mp3";
+import incorrectSound from "/audio/incorrect-sound.mp3";
 import backgroundMusic from "/audio/mixkit-game-level-music-689.wav";
 import { cn } from "~/utils/cn";
 
