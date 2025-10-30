@@ -68,17 +68,19 @@ export function RealOrAIGame({ onReset }: RealOrAIGameProps) {
   }, [time, randomImages, selected, isReset]);
 
   useEffect(() => {
-    backgroundAudio.play();
-    backgroundAudio.addEventListener("ended", () => {
+    const handleAudioEnded = () => {
       backgroundAudio.currentTime = 0;
       backgroundAudio.play();
-    });
+    };
+
+    backgroundAudio.volume = 0.4;
+    backgroundAudio.play();
+    backgroundAudio.addEventListener("ended", handleAudioEnded);
 
     return () => {
-      backgroundAudio.removeEventListener("ended", () => {
-        backgroundAudio.currentTime = 0;
-        backgroundAudio.pause();
-      });
+      backgroundAudio.removeEventListener("ended", handleAudioEnded);
+      backgroundAudio.currentTime = 0;
+      backgroundAudio.pause();
     };
   }, []);
 

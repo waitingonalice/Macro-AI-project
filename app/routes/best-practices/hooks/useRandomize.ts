@@ -53,7 +53,7 @@ export interface StatementDataset {
 //   return statements.sort(() => Math.random() - 0.6);
 // };
 
-const generateRandomStatement = () => {
+const generateRandomStatement = (currentStatement: string | null) => {
   const correctStatements = correctDataset.map((statement) => ({
     statement,
     isCorrect: true,
@@ -62,17 +62,25 @@ const generateRandomStatement = () => {
     statement,
     isCorrect: false,
   }));
-  const allStatements = [...correctStatements, ...wrongStatements];
+  const allStatements = [...correctStatements, ...wrongStatements].filter(
+    (statement) => statement.statement !== currentStatement
+  );
   const randomIndex = Math.floor(Math.random() * (allStatements.length - 1));
   return allStatements[randomIndex];
 };
 export const useRandomizeStatements = () => {
   const [statement, setStatement] = useState<StatementDataset[]>([
-    { statements: [generateRandomStatement()] },
+    { statements: [generateRandomStatement(null)] },
   ]);
 
   const handleGenerateRandomStatements = () => {
-    setStatement([{ statements: [generateRandomStatement()] }]);
+    setStatement([
+      {
+        statements: [
+          generateRandomStatement(statement[0].statements[0].statement),
+        ],
+      },
+    ]);
   };
 
   return {

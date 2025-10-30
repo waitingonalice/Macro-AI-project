@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Grid } from "./Grid";
 import { Button, Text } from "~/components";
 import { useRandomizeStatements } from "../hooks/useRandomize";
-import { useTimer } from "~/hooks/useTimer";
+// import { useTimer } from "~/hooks/useTimer";
 import backgroundMusic from "/audio/mixkit-game-level-music-689.wav";
 import correctSound from "/audio/correct-sound.mp3";
 import incorrectSound from "/audio/incorrect-sound.mp3";
@@ -21,11 +21,12 @@ export function BestPracticesGame() {
   const [animationKeys, setAnimationKeys] = useState<string[]>(
     generateAnimationKeys()
   );
-  const { time, handleReset, handleSkipTime } = useTimer(20);
+  // const { time, handleReset, handleSkipTime } = useTimer(20);
+  const [showAnswer, setShowAnswer] = useState(false);
   // const isReset = questionCount === MAX_QUESTIONS - 1;
 
   const handleClickShowAnswer = () => {
-    handleSkipTime();
+    setShowAnswer(true);
   };
   const handleNext = () => {
     // setQuestionCount((prev) => {
@@ -35,7 +36,8 @@ export function BestPracticesGame() {
     //   return prev;
     // });
     handleGenerateRandomStatements();
-    handleReset();
+    // handleReset();
+    setShowAnswer(false);
     setAnimationKeys(() => generateAnimationKeys());
   };
 
@@ -46,33 +48,35 @@ export function BestPracticesGame() {
   // };
 
   useEffect(() => {
-    if (time === 0) {
+    if (showAnswer) {
       if (statement[0].statements.every((statement) => statement.isCorrect)) {
         new Audio(correctSound).play();
       } else {
         new Audio(incorrectSound).play();
       }
     }
-  }, [time]);
+  }, [showAnswer]);
 
   useEffect(() => {
-    backgroundAudio.play();
-    backgroundAudio.addEventListener("ended", () => {
+    const handleAudioEnded = () => {
       backgroundAudio.currentTime = 0;
       backgroundAudio.play();
-    });
+    };
+
+    backgroundAudio.volume = 0.4;
+    backgroundAudio.play();
+    backgroundAudio.addEventListener("ended", handleAudioEnded);
 
     return () => {
-      backgroundAudio.removeEventListener("ended", () => {
-        backgroundAudio.currentTime = 0;
-        backgroundAudio.pause();
-      });
+      backgroundAudio.removeEventListener("ended", handleAudioEnded);
+      backgroundAudio.currentTime = 0;
+      backgroundAudio.pause();
     };
   }, []);
 
   return (
     <div className="flex flex-col items-center size-full gap-10 mt-10">
-      <Text className="absolute top-[6.5%] right-[8%]">Timer: {time}</Text>
+      {/* <Text className="absolute top-[6.5%] right-[8%]">Timer: {time}</Text> */}
       {/* <Text className="absolute top-[6.5%] left-[8%]">
         Question: {isReset ? MAX_QUESTIONS : questionCount + 1}/{MAX_QUESTIONS}
       </Text> */}
@@ -86,19 +90,19 @@ export function BestPracticesGame() {
         statements are bad practices.
       </Text>
       {/* <div className="gap-2 w-full h-[calc(100vh-36rem)] px-[8%]"> */}
-      <div className="gap-2 w-1/4 h-[calc(100vh-36rem)]">
+      <div className="w-1/2 h-[calc(100vh-42rem)] mt-12">
         {statement[0].statements.map((statement, index) => (
           // Generate random key to trigger rerender when statements are shuffled for animation
           <Grid
             key={animationKeys[index]}
             statement={statement}
             delay={index * 200}
-            timer={time}
+            showAnswer={showAnswer}
           />
         ))}
       </div>
-      <div className="flex justify-center h-fit">
-        {time > 0 ? (
+      <div className="flex justify-center h-fit mt-4">
+        {!showAnswer ? (
           <Button onClick={handleClickShowAnswer}>Show Answer</Button>
         ) : (
           <Button onClick={handleNext}>Next</Button>
