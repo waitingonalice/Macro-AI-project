@@ -82,12 +82,10 @@ export function BestPracticesGame() {
       </Text> */}
 
       <Text className="mt-[2%]">
-        Press the <span className="text-green-600">green</span> button if all
-        statements are best practices.
+        <span className="text-green-600">Green</span> = Best Practice
       </Text>
       <Text className="mt-[2%]">
-        Press the <span className="text-red-600">red</span> button if any of the
-        statements are bad practices.
+        <span className="text-red-600">Red</span> = Bad Practice
       </Text>
       {/* <div className="gap-2 w-full h-[calc(100vh-36rem)] px-[8%]"> */}
       <div className="w-1/2 h-[calc(100vh-42rem)] mt-12">

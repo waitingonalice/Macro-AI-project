@@ -54,7 +54,7 @@ export function Grid({ statement, delay = 0, showAnswer }: GridProps) {
             : "0 0 0 rgba(0, 0, 0, 0)",
         }}
       >
-        <div className="text-white font-conthrax-sb leading-relaxed text-center text-3xl px-6 z-10">
+        <div className="text-white leading-relaxed text-center text-5xl px-6 z-10 font-sans">
           {statement.statement}
         </div>
       </div>

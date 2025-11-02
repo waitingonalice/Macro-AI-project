@@ -65,7 +65,7 @@ export function PhotoGrid({
   }, [sortedImage]);
 
   return (
-    <div className="grid grid-cols-2 gap-x-16 my-16 max-h-[calc(100vh-200px)]">
+    <div className="grid grid-cols-2 gap-x-16 mt-26 mb-16 max-h-[calc(100vh-200px)]">
       {sortedImage.map((item: DatasetType, index: number) => {
         const colorScheme = borderColors[index];
         return (

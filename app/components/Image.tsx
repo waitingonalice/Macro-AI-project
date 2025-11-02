@@ -12,7 +12,7 @@ export function Image({ src, alt = "Real or AI?", className }: ImageProps) {
       src={src}
       alt={alt}
       className={cn(
-        "object-cover rounded-xl shadow-md size-[calc(100vh-32rem)]",
+        "object-cover rounded-xl shadow-md size-[calc(100vh-30rem)]",
         className
       )}
     />
